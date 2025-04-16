@@ -19,5 +19,13 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      // Add error handling for script loading
+      window.addEventListener('error', function(e) {
+        if (e.target.tagName === 'SCRIPT') {
+          console.error('Script loading error:', e.target.src);
+        }
+      });
+    </script>
   </body>
 </html> 
