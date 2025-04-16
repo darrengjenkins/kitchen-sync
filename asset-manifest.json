@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/kitchen-sync/static/css/main.cb129413.chunk.css",
+    "main.js": "/kitchen-sync/static/js/main.b13f02c8.chunk.js",
+    "main.js.map": "/kitchen-sync/static/js/main.b13f02c8.chunk.js.map",
+    "runtime~main.js": "/kitchen-sync/static/js/runtime~main.95139848.js",
+    "runtime~main.js.map": "/kitchen-sync/static/js/runtime~main.95139848.js.map",
+    "static/js/2.c7821bdd.chunk.js": "/kitchen-sync/static/js/2.c7821bdd.chunk.js",
+    "static/js/2.c7821bdd.chunk.js.map": "/kitchen-sync/static/js/2.c7821bdd.chunk.js.map",
+    "static/js/3.a29efab2.chunk.js": "/kitchen-sync/static/js/3.a29efab2.chunk.js",
+    "static/js/3.a29efab2.chunk.js.map": "/kitchen-sync/static/js/3.a29efab2.chunk.js.map",
+    "index.html": "/kitchen-sync/index.html",
+    "precache-manifest.295b3ff1e1d89d151689adca2f1cadae.js": "/kitchen-sync/precache-manifest.295b3ff1e1d89d151689adca2f1cadae.js",
+    "service-worker.js": "/kitchen-sync/service-worker.js",
+    "static/css/main.cb129413.chunk.css.map": "/kitchen-sync/static/css/main.cb129413.chunk.css.map",
+    "static/media/App.css": "/kitchen-sync/static/media/backsplash1.a2931fe9.png"
+  }
+}
