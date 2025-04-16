@@ -2,6 +2,9 @@
   "name": "pickleball-organizer",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "homepage": "https://darrengjenkins.github.io/kitchen-sync",
   "dependencies": {
     "@testing-library/dom": "^7.31.2",
