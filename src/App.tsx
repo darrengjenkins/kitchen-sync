@@ -13,7 +13,7 @@ interface Court {
 }
 
 const MIN_PLAYERS = 4;
-const MAX_PLAYERS = 30;
+const MAX_PLAYERS = 40;
 const PLAYERS_PER_COURT = 4;
 const MIN_COURTS = 1;
 const MAX_COURTS = 8;

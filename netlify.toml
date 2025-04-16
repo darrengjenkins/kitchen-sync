@@ -1,6 +1,5 @@
 [build.environment]
   NODE_VERSION = "16"
-  NODE_OPTIONS = "--openssl-legacy-provider"
 
 [build]
   command = "npm run build"
