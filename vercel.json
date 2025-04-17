@@ -22,9 +22,18 @@
   ],
   "routes": [
     {
+      "src": "/kitchen-sync/manifest.json",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      },
+      "continue": true
+    },
+    {
       "src": "/kitchen-sync/static/(.*)",
       "headers": {
-        "cache-control": "public, max-age=31536000, immutable"
+        "Cache-Control": "public, max-age=31536000, immutable"
       },
       "continue": true
     },
