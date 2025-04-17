@@ -5,30 +5,30 @@
   "framework": "create-react-app",
   "rewrites": [
     {
+      "source": "/kitchen-sync/manifest.json",
+      "destination": "/manifest.json"
+    },
+    {
+      "source": "/kitchen-sync/static/:path*",
+      "destination": "/static/:path*"
+    },
+    {
       "source": "/kitchen-sync/:path*",
       "destination": "/kitchen-sync/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/kitchen-sync/manifest.json",
+      "source": "/manifest.json",
       "headers": [
         {
           "key": "Content-Type",
           "value": "application/json"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
     {
-      "source": "/kitchen-sync/static/:path*",
+      "source": "/static/:path*",
       "headers": [
         {
           "key": "Cache-Control",
