@@ -162,14 +162,17 @@ function App() {
 
       <div className="court-count-selector">
         <label htmlFor="courtCount">Number of Available Courts:</label>
-        <input
-          type="number"
+        <select
           id="courtCount"
-          min={MIN_COURTS}
-          max={MAX_COURTS}
           value={courtCount}
-          onChange={handleCourtCountChange}
-        />
+          onChange={(e) => setCourtCount(parseInt(e.target.value))}
+        >
+          {Array.from({ length: MAX_COURTS }, (_, i) => i + 1).map((num) => (
+            <option key={num} value={num}>
+              {num}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="player-input">
