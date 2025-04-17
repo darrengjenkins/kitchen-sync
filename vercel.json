@@ -19,5 +19,15 @@
         }
       ]
     }
+  ],
+  "routes": [
+    {
+      "src": "/kitchen-sync/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/kitchen-sync/(.*)",
+      "dest": "/$1"
+    }
   ]
 } 
