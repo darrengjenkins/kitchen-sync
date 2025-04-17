@@ -147,6 +147,7 @@ function App() {
 
   return (
     <div className="App">
+      <Analytics />
       <div className="app-header">
         <h1>Kitchen Sync</h1>
         <p className="tagline">The pickleball court organizer with FairPlay Technology</p>
