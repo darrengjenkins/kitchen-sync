@@ -8,23 +8,23 @@
       "handle": "filesystem"
     },
     {
-      "src": "/static/(.*)",
+      "src": "/kitchen-sync/static/(.*)",
       "headers": {
         "cache-control": "public, max-age=31536000, immutable"
       },
       "continue": true
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/favicon.ico"
+      "src": "/kitchen-sync/favicon.ico",
+      "dest": "/kitchen-sync/favicon.ico"
     },
     {
-      "src": "/manifest.json",
-      "dest": "/manifest.json"
+      "src": "/kitchen-sync/manifest.json",
+      "dest": "/kitchen-sync/manifest.json"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "src": "/kitchen-sync/(.*)",
+      "dest": "/kitchen-sync/index.html"
     }
   ]
 } 
