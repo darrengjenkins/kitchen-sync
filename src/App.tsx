@@ -25,6 +25,7 @@ function App() {
   const [courts, setCourts] = useState<Court[]>([]);
   const [sittingOut, setSittingOut] = useState<Player[]>([]);
   const [gamesPlayed, setGamesPlayed] = useState(0);
+  const [nextPlayerId, setNextPlayerId] = useState(1);
 
   // Initialize or update courts when courtCount changes
   useEffect(() => {
@@ -35,8 +36,8 @@ function App() {
     setCourts(newCourts);
   }, [courtCount]);
 
-  const handleCourtCountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newCount = Math.min(Math.max(parseInt(e.target.value) || MIN_COURTS, MIN_COURTS), MAX_COURTS);
+  const handleCourtCountChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newCount = parseInt(e.target.value);
     setCourtCount(newCount);
   };
 
@@ -46,11 +47,12 @@ function App() {
       return;
     }
     const newPlayer: Player = {
-      id: players.length + 1,
+      id: nextPlayerId,
       name: name.trim(),
       sitOutCount: 0
     };
     setPlayers([...players, newPlayer]);
+    setNextPlayerId(nextPlayerId + 1);
   };
 
   const removePlayer = (id: number) => {
@@ -82,6 +84,7 @@ function App() {
     let sitOutCandidates: Player[] = [];
     let sitOutCount = 0;
     let i = 0;
+    
     // Collect enough players from the lowest sitOutCount groups
     while (sitOutCandidates.length < numToSitOut && i < sortedPlayers.length) {
       const currentCount = sortedPlayers[i].sitOutCount;
@@ -95,16 +98,23 @@ function App() {
       }
       i += group.length;
     }
+
     // Remove sitOutCandidates from the list to get available players
     const availablePlayers = sortedPlayers.filter(p => !sitOutCandidates.includes(p)).sort(() => Math.random() - 0.5);
 
     // Reset all courts first
     const newCourts: Court[] = courts.map(court => ({ ...court, players: [] }));
+    
+    // Calculate how many courts we can fill
     const courtsNeeded = Math.floor(availablePlayers.length / PLAYERS_PER_COURT);
+    
+    // Assign players to courts
     for (let i = 0; i < courtsNeeded; i++) {
+      const startIndex = i * PLAYERS_PER_COURT;
+      const endIndex = startIndex + PLAYERS_PER_COURT;
       newCourts[i] = {
         ...newCourts[i],
-        players: availablePlayers.slice(i * PLAYERS_PER_COURT, (i + 1) * PLAYERS_PER_COURT)
+        players: availablePlayers.slice(startIndex, endIndex)
       };
     }
 
@@ -134,14 +144,15 @@ function App() {
     }
 
     // Create all new players at once
-    const newPlayers = names.map((name, index) => ({
-      id: players.length + index + 1,
+    const newPlayers = names.map((name) => ({
+      id: nextPlayerId + names.indexOf(name),
       name: name,
       sitOutCount: 0
     }));
 
     // Add all players in a single state update
     setPlayers([...players, ...newPlayers]);
+    setNextPlayerId(nextPlayerId + names.length);
     input.value = '';
   };
 
@@ -167,7 +178,7 @@ function App() {
         <select
           id="courtCount"
           value={courtCount}
-          onChange={(e) => setCourtCount(parseInt(e.target.value))}
+          onChange={handleCourtCountChange}
         >
           {Array.from({ length: MAX_COURTS }, (_, i) => i + 1).map((num) => (
             <option key={num} value={num}>
